@@ -331,6 +331,7 @@ calculated width looks wrong. (This can happen with some special characters.)"
   :lighter    git-gutter+-lighter
   (if git-gutter+-mode
       (if (and (git-gutter+-file-buffer-p)
+               (not (file-symlink-p (buffer-file-name)))
                (git-gutter+-in-git-repository-p (buffer-file-name)))
           (progn
             (git-gutter+-add-local-hooks)
